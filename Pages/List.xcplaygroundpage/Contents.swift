@@ -17,22 +17,23 @@ class Solution {
         }
         return []
     }
-
- // 2. Sort + TwoPointer
-    func checkTwoSum(_ nums: [Int],_ target: Int) -> Bool {
-        let sortedNums = nums.sorted()
-        print(sortedNums)
+    
+    // 더해서 target의 값이 될 경우에는 true를 리턴할 때
+    func twoSumWithTwoPoint(_ nums: [Int],_ target: Int) -> Bool {
+        // 정렬 -> O(Nlogn)
+        let sortedList = nums.sorted()
         var left = 0
-        var right = sortedNums.count - 1
+        var right = sortedList.count - 1
         
         while left < right {
-            if sortedNums[left] + sortedNums[right] == target {
+            let leftNum = sortedList[left]
+            let rightNum = sortedList[right]
+            if leftNum + rightNum == target {
                 return true
-                
-            } else if sortedNums[left] + sortedNums[right] < target {
-                left = left + 1
-            } else if sortedNums[left] + sortedNums[right] > target {
+            } else if leftNum + rightNum > target {
                 right = right - 1
+            } else {
+                left = left + 1
             }
         }
         return false
@@ -41,7 +42,6 @@ class Solution {
 
 let test = Solution()
 //print(test.twoSum(input, target))
-print(test.checkTwoSum(input, target))
+print(test.twoSumWithTwoPoint(input, target))
 
-// 2.
 
