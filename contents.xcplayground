@@ -3,6 +3,7 @@
     <pages>
         <page name='List'/>
         <page name='LinkedList'/>
+        <page name='LinkedListReview'/>
         <page name='Array'/>
     </pages>
 </playground>
