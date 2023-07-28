@@ -51,5 +51,17 @@ class LinkedList<T> {
         current?.next = newNode
     }
 }
+//
+//
+//Your goal is to write a Swift playground that:
+//
+//Creates a constant holding any temperature in Celsius.
+//Converts it to Fahrenheit by multiplying by 9, dividing by 5, then adding 32.
+//Prints the result for the user, showing both the Celsius and Fahrenheit values.
+
+let celsius: Double = 24.00
+//화씨로 변경
+let fahrenheit = (celsius * 9 / 5) + 32
+print("Cellcius \(celsius), Fahrenheit \(fahrenheit)")
 
 
