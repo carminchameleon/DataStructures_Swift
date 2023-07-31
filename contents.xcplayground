@@ -6,5 +6,7 @@
         <page name='LinkedListReview'/>
         <page name='Array'/>
         <page name='ArrayBasic'/>
+        <page name='MergeSortedArray'/>
+        <page name='Reverse'/>
     </pages>
 </playground>

@@ -43,11 +43,17 @@ print(first == third)
 
 let string = "my Name is Andrei"
 
-func convert(string: String) -> String {
-    let array = string.split(separator: "").reversed()
-    return array.joined(separator: "")
-    
-}
 
-convert(string: string)
-
+let list = string.map { return $0 }
+print(list)
+//
+//func convert(string: String) -> String {
+//    let array = string.split(separator: "").reversed()
+//    return array.joined(separator: "")
+//
+//}
+//
+//convert(string: string)
+//
+//let test = ""
+//print(convert(string: test))

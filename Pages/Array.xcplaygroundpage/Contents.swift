@@ -17,7 +17,3 @@ class Solution {
     }
 }
 
-
-
-let test = Solution()
-print(test.twoSum(input, target))
