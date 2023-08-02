@@ -8,5 +8,6 @@
         <page name='ArrayBasic'/>
         <page name='MergeSortedArray'/>
         <page name='Reverse'/>
+        <page name='LinkedListTail'/>
     </pages>
 </playground>

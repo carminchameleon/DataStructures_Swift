@@ -2,66 +2,106 @@
 
 import Foundation
 
-// Linked List
-// 배열을 만드는 방법
-// 1. static array 2. dynamic array
-// 1. 모든 것을 다 같이 넣는 방법 - easy and fast approach data,
-
+// linked List 만들기
 // node
-// linked list
+
 
 class Node<T> {
     var data: T?
-    var next: Node?
+    var next: Node<T>?
     
-    init(data: T, next: Node? = nil) {
+    init(data: T?, next: Node?  = nil) {
         self.data = data
         self.next = next
     }
-    
 }
 
-let first = Node(data: 1)
-let second = Node(data: 2)
-let third = Node(data: 3)
+var first = Node(data: 0)
+var second = Node(data: 1)
+var third = Node(data: 2)
 
 first.next = second
 second.next = third
 
 
-// head
+
 class LinkedList<T> {
-    var head: Node<T>?
+    private var head: Node<T>?
     
-    // push
-    func push(data: T) {
+    // append - 뒤에서 넣는다.
+    func append(data: T) {
         let newNode = Node(data: data)
-        
-        //   head가 비어있을 경우 그 값이 head가 된다.
+        // 만약 아무것도 없는 상태라면, head에
         if head == nil {
-            head = newNode
+            self.head = newNode
             return
         }
         
-        // 마지막에 넣어야 하는 거니까 마지막 값을 찾아야 한다.
         var current = head
-        while current?.next != nil {
+        while current?.next != nil { // current.next != nil 이라면 아래 구문을 실행한다.
             current = current?.next
         }
         current?.next = newNode
+    
+    }
+
+    func get(index: Int) -> T? {
+        var current = head
+        for _ in 0..<index {
+            current = current?.next
+        }
+        return current?.data
+    }
+    
+    /** 우리가 넣어주고자 하는 인덱스의 직전까지 가야 한다
+        직전 인덱스의 다음 인덱스를 새로운 노드로 넣어주고
+        기존의 다음 값은 새로운 노드의 다음 값으로 연결해주면 된다. */
+    func insert(index: Int, value: T) {
+        var current = head
+        for _ in 0..<index-1 {
+            current = current?.next
+        }
+        let nextNode = current?.next
+        // 현재의 자리에는 과거의 것을 넣는다.
+        let newNode = Node(data: value, next: nextNode)
+        // 내거의 next를 뒤에거로
+        current?.next = newNode
+    }
+    // 어떤 값을 삭제해보자.
+    //
+    func remove(index: Int) {
+       var current = head
+        for _ in 0..<index-1 {
+            current = current?.next
+        }
+        current?.next = current?.next?.next
     }
 }
-//
-//
-//Your goal is to write a Swift playground that:
-//
-//Creates a constant holding any temperature in Celsius.
-//Converts it to Fahrenheit by multiplying by 9, dividing by 5, then adding 32.
-//Prints the result for the user, showing both the Celsius and Fahrenheit values.
-
-let celsius: Double = 24.00
-//화씨로 변경
-let fahrenheit = (celsius * 9 / 5) + 32
-print("Cellcius \(celsius), Fahrenheit \(fahrenheit)")
 
 
+let linkedList = LinkedList<Int>()
+linkedList.append(data: 1)
+linkedList.append(data: 2)
+linkedList.append(data: 3)
+linkedList.append(data: 4)
+linkedList.get(index: 0)
+linkedList.get(index: 1)
+linkedList.get(index: 2)
+linkedList.get(index: 3)
+linkedList.get(index: 4)
+
+linkedList.insert(index: 2, value: 9)
+linkedList.get(index: 0)
+linkedList.get(index: 1)
+linkedList.get(index: 2)
+linkedList.get(index: 3)
+linkedList.get(index: 4)
+
+
+linkedList.remove(index: 2)
+linkedList.remove(index: 2)
+linkedList.get(index: 0)
+linkedList.get(index: 1)
+linkedList.get(index: 2)
+linkedList.get(index: 3)
+linkedList.get(index: 4)
