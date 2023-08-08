@@ -9,5 +9,7 @@
         <page name='MergeSortedArray'/>
         <page name='Reverse'/>
         <page name='LinkedListTail'/>
+        <page name='Review'/>
+        <page name='BrowserHistory'/>
     </pages>
 </playground>
